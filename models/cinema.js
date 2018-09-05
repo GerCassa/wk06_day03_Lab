@@ -28,5 +28,11 @@ Cinema.prototype.filmYear = function (year) {
   });
 };
 
+Cinema.prototype.filmLength = function (length) {
+  return this.films.every( (film) => {
+    return film.length >= length;
+  });
+};
+
 
 module.exports = Cinema;
