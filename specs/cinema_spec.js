@@ -63,6 +63,11 @@ describe('Cinema', function () {
     assert.strictEqual(actual, 622)
   });
 
+  it("should be able to find a film by a year", function() {
+    const actual = cinema.findByProperty("year", 2017);
+    assert.deepStrictEqual(actual, [bladeRunner, dunkirk, trainspotting])
+  });
+
 });
 
 module.exports = Cinema;

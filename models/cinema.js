@@ -40,5 +40,11 @@ Cinema.prototype.totalLength = function () {
   }, 0);
 };
 
+Cinema.prototype.findByProperty = function (property, searchProperty) {
+  return this.films.filter( (film) => {
+    return film[property] === searchProperty;
+  });
+};
+
 
 module.exports = Cinema;
