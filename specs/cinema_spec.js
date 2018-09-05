@@ -13,11 +13,11 @@ describe('Cinema', function () {
   let cinema;
 
   beforeEach(function () {
-    moonlight = new Film('Moonlight', 'drama', 2016, 111);
-    bladeRunner = new Film('Blade Runner 2049', 'sci-fi', 2017, 164);
-    dunkirk = new Film('Dunkirk', 'history', 2017, 96);
-    blackPanther = new Film('Black Panther', 'action', 2018, 134);
-    trainspotting = new Film('T2 Trainspotting', 'drama', 2017, 117);
+    moonlight = new Film('Moonlight', 'drama', 2016, 111, 16);
+    bladeRunner = new Film('Blade Runner 2049', 'sci-fi', 2017, 164, 17);
+    dunkirk = new Film('Dunkirk', 'history', 2017, 96, 13);
+    blackPanther = new Film('Black Panther', 'action', 2018, 134, 13);
+    trainspotting = new Film('T2 Trainspotting', 'drama', 2017, 117, 18);
 
     films = [moonlight, bladeRunner, dunkirk, blackPanther, trainspotting];
     cinema = new Cinema(films);
@@ -39,7 +39,7 @@ describe('Cinema', function () {
   });
 
   it('should be able to filter films by genre', function() {
-    const actual = cinema.findByGenre("drama");
+    const actual = cinema.findByProperty("genre" ,"drama");
     assert.deepStrictEqual(actual, [moonlight, trainspotting])
   });
 
@@ -66,6 +66,11 @@ describe('Cinema', function () {
   it("should be able to find a film by a year", function() {
     const actual = cinema.findByProperty("year", 2017);
     assert.deepStrictEqual(actual, [bladeRunner, dunkirk, trainspotting])
+  });
+
+  it("should be able to restrict who can watch it", function() {
+    const actual = cinema.findAllowedFilms(17);
+    assert.deepStrictEqual(actual, [moonlight, bladeRunner, dunkirk, blackPanther] )
   });
 
 });

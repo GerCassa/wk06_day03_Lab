@@ -6,7 +6,7 @@ describe('Film', function () {
   let moonlight;
 
   beforeEach(function () {
-    moonlight = new Film('Moonlight', 'drama', 2016, 111);
+    moonlight = new Film('Moonlight', 'drama', 2016, 111, 16);
   });
 
   it('should have a title', function () {
